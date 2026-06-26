@@ -167,6 +167,32 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .header-cta {
   display: flex;
   align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btn-shop-online {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-full);
+  background: var(--bg);
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.btn-shop-online:hover {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow-primary);
+  transform: translateY(-2px);
 }
 
 .btn-corporate {
@@ -1987,7 +2013,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .cat-flip-hint { animation: none; }
 }
 
-/* ---- Deal Section ---- */
+/* ---- Products Section ---- */
+.products-section .products-grid {
+  margin-top: 8px;
+}
+
 .deal-section { padding: 0 0 72px; }
 
 .deal-banner {

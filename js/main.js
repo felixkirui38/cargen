@@ -166,6 +166,76 @@
 
 
 
+  const PROD = 'images/products/';
+
+
+
+  const products = {
+
+    new: [
+
+      { title: 'TVS HLX 150 Motorcycle', category: 'Automotive', price: 1899.00, oldPrice: null, rating: 5, reviews: 24, image: `${PROD}tvs-hlx-150.png`, badge: 'new' },
+
+      { title: 'MRF Nylo Grip Tyre', category: 'Automotive', price: 89.99, oldPrice: 109.99, rating: 5, reviews: 18, image: `${PROD}mrf-tire.png`, badge: 'sale' },
+
+      { title: 'Motorola Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 59.99, rating: 5, reviews: 31, image: `${PROD}motorol-oil.png`, badge: 'sale' },
+
+      { title: 'Garmin Edge 1050 GPS Computer', category: 'Garmin', price: 649.00, oldPrice: null, rating: 5, reviews: 12, image: `${PROD}garmin-edge-1050.png`, badge: 'new' },
+
+      { title: 'Snapper Self-Propelled Lawnmower', category: 'Garden', price: 1299.00, oldPrice: null, rating: 4, reviews: 9, image: `${PROD}snapper-lawnmower.png`, badge: null },
+
+      { title: 'Submersible Water Pump 1HP', category: 'Garden', price: 189.00, oldPrice: 229.00, rating: 5, reviews: 15, image: `${PROD}water-pump.png`, badge: 'sale' },
+
+      { title: 'Ace F150 Backhoe Loader', category: 'Construction', price: 24999.00, oldPrice: null, rating: 5, reviews: 6, image: `${PROD}ace-f150.png`, badge: 'new' },
+
+      { title: 'Ingersoll Rand Air Compressor', category: 'Industrial', price: 3499.00, oldPrice: 3999.00, rating: 5, reviews: 11, image: `${PROD}ir-compressor.png`, badge: 'sale' },
+
+    ],
+
+    bestseller: [
+
+      { title: 'TVS HLX 150 Motorcycle', category: 'Automotive', price: 1899.00, oldPrice: null, rating: 5, reviews: 89, image: `${PROD}tvs-hlx-150.png`, badge: null },
+
+      { title: 'MRF Nylo Grip Tyre', category: 'Automotive', price: 89.99, oldPrice: 109.99, rating: 5, reviews: 67, image: `${PROD}mrf-tire.png`, badge: 'sale' },
+
+      { title: 'Motorola Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 59.99, rating: 5, reviews: 112, image: `${PROD}motorol-oil.png`, badge: 'sale' },
+
+      { title: 'Garmin Montana 700 GPS', category: 'Garmin', price: 549.00, oldPrice: null, rating: 5, reviews: 38, image: `${PROD}garmin-montana.png`, badge: null },
+
+      { title: 'Snapper Self-Propelled Lawnmower', category: 'Garden', price: 1299.00, oldPrice: null, rating: 4, reviews: 22, image: `${PROD}snapper-lawnmower.png`, badge: null },
+
+      { title: 'Submersible Water Pump 1HP', category: 'Garden', price: 189.00, oldPrice: 229.00, rating: 5, reviews: 41, image: `${PROD}water-pump.png`, badge: 'sale' },
+
+      { title: 'Toyota 8FG25 Forklift', category: 'Industrial', price: 18500.00, oldPrice: null, rating: 5, reviews: 14, image: `${IMG}toyota-forklift.png?v=2`, badge: 'new' },
+
+      { title: 'Ingersoll Rand Air Compressor', category: 'Industrial', price: 3499.00, oldPrice: 3999.00, rating: 5, reviews: 52, image: `${PROD}ir-compressor.png`, badge: 'sale' },
+
+    ],
+
+    featured: [
+
+      { title: 'Garmin Edge 1050 GPS Computer', category: 'Garmin', price: 649.00, oldPrice: 699.00, rating: 5, reviews: 28, image: `${PROD}garmin-edge-1050.png`, badge: 'sale' },
+
+      { title: 'Garmin Montana 700 GPS', category: 'Garmin', price: 549.00, oldPrice: null, rating: 5, reviews: 36, image: `${PROD}garmin-montana.png`, badge: 'new' },
+
+      { title: 'Ace F150 Backhoe Loader', category: 'Construction', price: 24999.00, oldPrice: null, rating: 5, reviews: 8, image: `${PROD}ace-f150.png`, badge: null },
+
+      { title: 'Toyota 8FG25 Forklift', category: 'Industrial', price: 18500.00, oldPrice: 19999.00, rating: 5, reviews: 19, image: `${IMG}toyota-forklift.png?v=2`, badge: 'sale' },
+
+      { title: 'TVS HLX 150 Motorcycle', category: 'Automotive', price: 1899.00, oldPrice: null, rating: 5, reviews: 74, image: `${PROD}tvs-hlx-150.png`, badge: null },
+
+      { title: 'MRF Nylo Grip Tyre', category: 'Automotive', price: 89.99, oldPrice: null, rating: 4, reviews: 63, image: `${PROD}mrf-tire.png`, badge: null },
+
+      { title: 'Motorola Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 54.99, rating: 5, reviews: 95, image: `${PROD}motorol-oil.png`, badge: 'sale' },
+
+      { title: 'Ingersoll Rand Air Compressor', category: 'Industrial', price: 3499.00, oldPrice: null, rating: 5, reviews: 29, image: `${PROD}ir-compressor.png`, badge: null },
+
+    ],
+
+  };
+
+
+
   const brands = [
 
     'PIAGGIO', 'TVS', 'MRF', 'KUBOTA', 'CUMMINS', 'GARMIN', 'ELECTROLUX',
@@ -283,6 +353,96 @@
       </div>
 
     `).join('');
+
+  }
+
+
+
+  function renderProductCard(p) {
+
+    const badgeHtml = p.badge
+
+      ? `<span class="badge-${p.badge}">${p.badge === 'sale' ? 'Sale' : 'New'}</span>`
+
+      : '';
+
+    const oldPriceHtml = p.oldPrice
+
+      ? `<span class="price-old">KES ${p.oldPrice.toLocaleString('en-KE', { minimumFractionDigits: 2 })}</span>`
+
+      : '';
+
+
+
+    return `
+
+      <div class="product-card">
+
+        <div class="product-badges">${badgeHtml}</div>
+
+        <div class="product-actions">
+
+          <button type="button" title="Wishlist"><i class="far fa-heart"></i></button>
+
+          <button type="button" title="Quick View"><i class="far fa-eye"></i></button>
+
+          <button type="button" title="Compare"><i class="fas fa-sync-alt"></i></button>
+
+        </div>
+
+        <a href="#contact" class="product-image">
+
+          <img src="${p.image}" alt="${p.title}" class="product-shot" loading="lazy" />
+
+        </a>
+
+        <div class="product-info">
+
+          <div class="product-category">${p.category}</div>
+
+          <a href="#contact" class="product-title">${p.title}</a>
+
+          <div class="product-rating">
+
+            ${renderStars(p.rating)}
+
+            <span>(${p.reviews})</span>
+
+          </div>
+
+          <div class="product-price">
+
+            <span class="price-current">KES ${p.price.toLocaleString('en-KE', { minimumFractionDigits: 2 })}</span>
+
+            ${oldPriceHtml}
+
+          </div>
+
+          <div class="product-cart">
+
+            <button type="button"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+
+
+  function renderProducts(tab) {
+
+    const grid = document.getElementById('products-grid');
+
+    if (!grid) return;
+
+    const items = products[tab] || products.new;
+
+    grid.innerHTML = items.map(renderProductCard).join('');
 
   }
 
@@ -764,6 +924,8 @@
 
       { title: 'Shop By Category', type: 'Page', href: '#categories', keywords: 'categories products divisions browse shop', icon: 'fa-th-large' },
 
+      { title: 'Our Products', type: 'Page', href: '#products', keywords: 'products shop online buy catalogue listings', icon: 'fa-box-open' },
+
       { title: 'Our Partners', type: 'Page', href: '#brands', keywords: 'brands partners manufacturers', icon: 'fa-handshake' },
 
       { title: 'News & Updates', type: 'Page', href: '#news', keywords: 'news press releases media updates', icon: 'fa-newspaper' },
@@ -811,6 +973,26 @@
           icon: cat.icon,
 
         });
+
+      });
+
+    });
+
+
+
+    Object.values(products).flat().forEach((product) => {
+
+      index.push({
+
+        title: product.title,
+
+        type: 'Product',
+
+        href: '#products',
+
+        keywords: `${product.title} ${product.category}`.toLowerCase(),
+
+        icon: 'fa-box',
 
       });
 
@@ -1046,9 +1228,91 @@
 
 
 
+  function initCountdown() {
+
+    const end = new Date();
+
+    end.setDate(end.getDate() + 7);
+
+
+
+    function update() {
+
+      const now = new Date();
+
+      const diff = end - now;
+
+      if (diff <= 0) return;
+
+
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+
+      const secs = Math.floor((diff / 1000) % 60);
+
+
+
+      const pad = (n) => String(n).padStart(2, '0');
+
+      const el = (id) => document.getElementById(id);
+
+      if (el('cd-days')) el('cd-days').textContent = pad(days);
+
+      if (el('cd-hours')) el('cd-hours').textContent = pad(hours);
+
+      if (el('cd-mins')) el('cd-mins').textContent = pad(mins);
+
+      if (el('cd-secs')) el('cd-secs').textContent = pad(secs);
+
+    }
+
+
+
+    update();
+
+    setInterval(update, 1000);
+
+  }
+
+
+
+  function initTabs() {
+
+    const tabs = document.getElementById('product-tabs');
+
+    if (!tabs) return;
+
+
+
+    tabs.addEventListener('click', (e) => {
+
+      const btn = e.target.closest('.tab-btn');
+
+      if (!btn) return;
+
+
+
+      tabs.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+
+      btn.classList.add('active');
+
+      renderProducts(btn.dataset.tab);
+
+    });
+
+  }
+
+
+
   function init() {
 
     renderCategories();
+
+    renderProducts('new');
 
     renderBrands();
 
@@ -1065,6 +1329,10 @@
     initStickyHeader();
 
     initCounters();
+
+    initCountdown();
+
+    initTabs();
 
     initReveal();
 
