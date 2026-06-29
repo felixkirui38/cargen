@@ -144,6 +144,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .top-bar-right a:hover { color: #fff; }
 .top-bar-right i { color: var(--primary-light); font-size: 11px; }
 
+@media (max-width: 991px) {
+  .top-bar { display: none; }
+}
+
 /* ---- Main Header ---- */
 .main-header {
   background: var(--bg);
@@ -661,6 +665,67 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 @media (min-width: 992px) { .search-toggle { display: none; } }
+
+/* Mobile: search always visible at top of header */
+@media (max-width: 991px) {
+  .main-header {
+    padding: 10px 0 12px;
+  }
+
+  .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 10px 12px;
+    align-items: center;
+  }
+
+  .header-search {
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    position: static;
+    max-width: none;
+    width: 100%;
+    order: unset;
+  }
+
+  .logo {
+    grid-row: 2;
+    grid-column: 1;
+    order: unset;
+    margin-left: 0;
+  }
+
+  .search-toggle {
+    display: none;
+  }
+
+  .mobile-toggle {
+    grid-row: 2;
+    grid-column: 2;
+    order: unset;
+    margin-left: 0;
+  }
+
+  .main-header.search-open .header-search {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-top: 0;
+  }
+
+  .header-search input {
+    padding: 11px 16px;
+    font-size: 14px;
+  }
+
+  .header-search button {
+    width: 42px;
+    height: 42px;
+  }
+}
 
 .main-header.search-open .header-search {
   display: flex;
@@ -1279,19 +1344,45 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
-@media (min-width: 768px) { .features-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 576px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}
 
 .feature-item {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 12px;
   border-radius: var(--radius);
   transition: all var(--transition);
+  min-width: 0;
+}
+
+.feature-item > div {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .feature-item {
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+  }
 }
 
 .feature-item:hover {
@@ -1324,14 +1415,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 14px;
   font-weight: 700;
   color: var(--dark);
-  margin-bottom: 3px;
+  margin-bottom: 4px;
   letter-spacing: -0.01em;
+  line-height: 1.35;
 }
 
 .feature-item p {
   font-size: 13px;
   color: var(--text-muted);
   font-weight: 450;
+  line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 /* ---- Bento Promo Grid ---- */
@@ -1809,10 +1903,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   border-radius: var(--radius-lg);
-  overflow: hidden;
 }
 
 .cat-flip-front {
+  overflow: hidden;
   background: var(--dark);
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
@@ -1934,11 +2028,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .cat-flip-back {
   background: linear-gradient(160deg, var(--bg) 0%, #fff8f8 100%);
   border: 1px solid rgba(255, 0, 0, 0.15);
-  transform: rotateY(180deg);
-  padding: 22px 18px;
+  transform: rotateY(180deg) translateZ(1px);
+  padding: 22px 14px 18px 18px;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-md);
+  overflow: hidden;
+  min-height: 0;
 }
 
 .cat-flip-back-title {
@@ -1947,17 +2043,43 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
 }
 
 .cat-sub-list {
-  flex: 1;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   margin: 0;
-  padding: 0;
+  padding: 0 6px 0 0;
   list-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 0, 0, 0.35) transparent;
+}
+
+.cat-sub-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cat-sub-list::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: var(--radius-full);
+}
+
+.cat-sub-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 0, 0, 0.3);
+  border-radius: var(--radius-full);
+}
+
+.cat-sub-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 0, 0, 0.5);
 }
 
 .cat-sub-list li { margin-bottom: 4px; }
@@ -2018,12 +2140,76 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: 1.5px solid rgba(255, 0, 0, 0.25);
   border-radius: var(--radius-full);
   transition: all var(--transition);
+  flex-shrink: 0;
+  align-self: center;
 }
 
 .cat-flip-more:hover {
   background: var(--primary);
   color: #fff;
   border-color: var(--primary);
+}
+
+/* Touch / mobile: flat card (no 3D) so sub-list scroll works */
+@media (max-width: 991px), (hover: none) and (pointer: coarse) {
+  .cat-flip-card {
+    perspective: none;
+  }
+
+  .cat-flip-inner {
+    transform-style: flat;
+    transition: none;
+    transform: none !important;
+  }
+
+  .cat-flip-card:hover .cat-flip-inner,
+  .cat-flip-card.flipped .cat-flip-inner {
+    transform: none !important;
+  }
+
+  .cat-flip-front {
+    z-index: 1;
+    transition: opacity 0.25s var(--ease), visibility 0.25s;
+  }
+
+  .cat-flip-back {
+    transform: none;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease), visibility 0.25s;
+  }
+
+  .cat-flip-card.flipped .cat-flip-front {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .cat-flip-card.flipped .cat-flip-back {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .cat-flip-card:hover .cat-flip-bg,
+  .cat-flip-card:hover .cat-flip-front h4,
+  .cat-flip-card:hover .cat-flip-hint {
+    animation: none;
+    transform: none;
+  }
+
+  .cat-sub-list {
+    position: relative;
+    z-index: 3;
+    transform: translateZ(0);
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overflow-y: scroll;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3098,8 +3284,8 @@ img, video, svg {
   .top-bar-left { gap: 12px; }
   .top-bar-right { gap: 10px; }
 
-  .main-header { padding: 12px 0; }
-  .header-inner { gap: 10px; }
+  .main-header { padding: 10px 0; }
+  .header-inner { gap: 8px 10px; }
 
   .logo-img {
     height: 46px;
@@ -3124,9 +3310,14 @@ img, video, svg {
 
   .section-header.center { align-items: center; }
 
-  .features-grid { grid-template-columns: 1fr; }
+  .service-features { padding: 20px 0; }
 
-  .feature-item { padding: 12px 8px; }
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .feature-icon i { font-size: 20px; }
 
   .hero-slide { min-height: 420px; }
   .hero-slide-inner {
@@ -3205,23 +3396,6 @@ img, video, svg {
 
 /* ---- Phones & small tablets (≤767px) ---- */
 @media (max-width: 767px) {
-  .header-inner {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .logo { order: 1; }
-
-  .mobile-toggle { order: 2; margin-left: auto; }
-  .search-toggle { order: 3; }
-
-  .main-header.search-open .header-search {
-    order: 4;
-    flex: 1 1 100%;
-    left: 16px;
-    right: 16px;
-  }
-
   .section-header:not(.center) {
     flex-direction: column;
     align-items: flex-start;
@@ -3304,11 +3478,6 @@ img, video, svg {
 
 /* ---- Touch & accessibility ---- */
 @media (hover: none) and (pointer: coarse) {
-  .cat-flip-card:hover .cat-flip-inner,
-  .cat-flip-card.flipped .cat-flip-inner {
-    transform: rotateY(180deg);
-  }
-
   .product-actions {
     opacity: 1;
     transform: translateX(0);

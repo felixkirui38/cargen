@@ -770,21 +770,85 @@
 
   function initCategoryFlips() {
 
-    document.addEventListener('click', (e) => {
-
-      const card = e.target.closest('.cat-flip-card');
-
-      if (!card || !('ontouchstart' in window)) return;
+    const isFlatCard = () => window.matchMedia('(max-width: 991px), (hover: none)').matches;
 
 
 
-      document.querySelectorAll('.cat-flip-card').forEach((c) => {
+    document.querySelectorAll('.cat-flip-card').forEach((card) => {
 
-        if (c !== card) c.classList.remove('flipped');
+      const list = card.querySelector('.cat-sub-list');
+
+
+
+      if (list) {
+
+        ['touchstart', 'touchmove', 'touchend'].forEach((evt) => {
+
+          list.addEventListener(evt, (e) => {
+
+            e.stopPropagation();
+
+          }, { passive: true });
+
+        });
+
+      }
+
+
+
+      card.addEventListener('click', (e) => {
+
+        if (e.target.closest('.cat-sub-list') || e.target.closest('.cat-flip-more')) return;
+
+
+
+        if (e.target.closest('.cat-flip-back-title')) {
+
+          card.classList.remove('flipped');
+
+          return;
+
+        }
+
+
+
+        if (isFlatCard()) {
+
+          if (e.target.closest('.cat-flip-back')) return;
+
+          if (!e.target.closest('.cat-flip-front')) return;
+
+
+
+          document.querySelectorAll('.cat-flip-card').forEach((c) => {
+
+            if (c !== card) c.classList.remove('flipped');
+
+          });
+
+          card.classList.add('flipped');
+
+          return;
+
+        }
+
+
+
+        if (!('ontouchstart' in window)) return;
+
+        if (e.target.closest('.cat-flip-back')) return;
+
+
+
+        document.querySelectorAll('.cat-flip-card').forEach((c) => {
+
+          if (c !== card) c.classList.remove('flipped');
+
+        });
+
+        card.classList.toggle('flipped');
 
       });
-
-      card.classList.toggle('flipped');
 
     });
 
