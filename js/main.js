@@ -34,7 +34,7 @@
 
         { name: 'MRF', image: `${IMG}sub-tire.png` },
 
-        { name: 'Motorola', image: `${IMG}sub-oil.png` },
+        { name: 'Motorol', image: `${IMG}sub-oil.png` },
 
       ],
 
@@ -84,7 +84,7 @@
 
       subcategories: [
 
-        { name: 'Lawnmowers', image: `${IMG}cat-garden.png` },
+        { name: 'Lawnmowers', image: 'images/products/lawnmower.png' },
 
         { name: 'Water Pumps', image: `${IMG}sub-water-pump.png` },
 
@@ -132,13 +132,13 @@
 
       icon: 'fa-bolt',
 
-      image: `${IMG}cat-generators.png?v=2`,
+      image: `${IMG}cat-generators.png?v=3`,
 
       subcategories: [
 
         { name: 'Cummins', image: 'images/products/cummins.png?v=2' },
 
-        { name: 'Briggs & Stratton', image: `${IMG}cat-generators.png` },
+        { name: 'Briggs & Stratton', image: 'images/products/briggs-stratton.png' },
 
       ],
 
@@ -178,7 +178,7 @@
 
       { title: 'MRF Nylo Grip Tyre', category: 'Automotive', price: 89.99, oldPrice: 109.99, rating: 5, reviews: 18, image: `${PROD}mrf-tire.png`, badge: 'sale' },
 
-      { title: 'Motorola Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 59.99, rating: 5, reviews: 31, image: `${PROD}motorol-oil.png`, badge: 'sale' },
+      { title: 'Motorol Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 59.99, rating: 5, reviews: 31, image: `${PROD}motorol-oil.png`, badge: 'sale' },
 
       { title: 'Garmin Edge 1050 GPS Computer', category: 'Garmin', price: 649.00, oldPrice: null, rating: 5, reviews: 12, image: `${PROD}garmin-edge-1050.png`, badge: 'new' },
 
@@ -198,7 +198,7 @@
 
       { title: 'MRF Nylo Grip Tyre', category: 'Automotive', price: 89.99, oldPrice: 109.99, rating: 5, reviews: 67, image: `${PROD}mrf-tire.png`, badge: 'sale' },
 
-      { title: 'Motorola Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 59.99, rating: 5, reviews: 112, image: `${PROD}motorol-oil.png`, badge: 'sale' },
+      { title: 'Motorol Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 59.99, rating: 5, reviews: 112, image: `${PROD}motorol-oil.png`, badge: 'sale' },
 
       { title: 'Garmin Montana 700 GPS', category: 'Garmin', price: 549.00, oldPrice: null, rating: 5, reviews: 38, image: `${PROD}garmin-montana.png`, badge: null },
 
@@ -226,7 +226,7 @@
 
       { title: 'MRF Nylo Grip Tyre', category: 'Automotive', price: 89.99, oldPrice: null, rating: 4, reviews: 63, image: `${PROD}mrf-tire.png`, badge: null },
 
-      { title: 'Motorola Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 54.99, rating: 5, reviews: 95, image: `${PROD}motorol-oil.png`, badge: 'sale' },
+      { title: 'Motorol Synthetic Engine Oil 5W-30', category: 'Lubricants', price: 42.99, oldPrice: 54.99, rating: 5, reviews: 95, image: `${PROD}motorol-oil.png`, badge: 'sale' },
 
       { title: 'Ingersoll Rand Air Compressor', category: 'Industrial', price: 3499.00, oldPrice: null, rating: 5, reviews: 29, image: `${PROD}ir-compressor.png`, badge: null },
 
@@ -240,7 +240,7 @@
 
     'PIAGGIO', 'TVS', 'MRF', 'KUBOTA', 'CUMMINS', 'GARMIN', 'ELECTROLUX',
 
-    'BRIGGS & STRATTON', 'DEVELON', 'TOYOTA', 'MOTOROLA', 'ACE',
+    'BRIGGS & STRATTON', 'DEVELON', 'TOYOTA', 'MOTOROL', 'ACE',
 
     'PIAGGIO', 'TVS', 'MRF', 'KUBOTA', 'CUMMINS', 'GARMIN',
 
@@ -932,6 +932,8 @@
 
       { title: 'Careers', type: 'Page', href: '#careers', keywords: 'careers jobs employment hiring work', icon: 'fa-briefcase' },
 
+      { title: 'Branch Locations', type: 'Page', href: '#branches', keywords: 'branches locations map east africa network offices', icon: 'fa-map-location-dot' },
+
       { title: 'Contact Us', type: 'Page', href: '#contact', keywords: 'contact enquiry consultation branch locations speak expert', icon: 'fa-envelope' },
 
     ];
@@ -1308,6 +1310,102 @@
 
 
 
+  function initBranchMap() {
+
+    const mapEl = document.getElementById('branch-map');
+
+    if (!mapEl || typeof L === 'undefined') return;
+
+
+
+    const branches = [
+
+      { name: 'Kigali, Rwanda', lat: -1.9441, lng: 30.0619 },
+
+      { name: 'Kampala, Uganda', lat: 0.3476, lng: 32.5825 },
+
+      { name: 'Lodwar, Kenya', lat: 3.1191, lng: 35.5973 },
+
+      { name: 'Eldoret, Kenya', lat: 0.5143, lng: 35.2698 },
+
+      { name: 'Nairobi, Kenya', lat: -1.2921, lng: 36.8219 },
+
+      { name: 'Malindi, Kenya', lat: -3.2175, lng: 40.1169 },
+
+      { name: 'Mombasa, Kenya', lat: -4.0435, lng: 39.6682 },
+
+      { name: 'Arusha, Tanzania', lat: -3.3869, lng: 36.6830 },
+
+      { name: 'Dar es Salaam, Tanzania', lat: -6.7924, lng: 39.2083 },
+
+    ];
+
+
+
+    const map = L.map(mapEl, {
+
+      scrollWheelZoom: false,
+
+      zoomControl: true,
+
+    });
+
+
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+      maxZoom: 18,
+
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+
+    }).addTo(map);
+
+
+
+    const icon = L.divIcon({
+
+      className: 'branch-marker',
+
+      html: '<span aria-hidden="true"></span>',
+
+      iconSize: [26, 26],
+
+      iconAnchor: [13, 26],
+
+      popupAnchor: [0, -26],
+
+    });
+
+
+
+    const markers = branches.map((branch) => {
+
+      const marker = L.marker([branch.lat, branch.lng], { icon }).addTo(map);
+
+      marker.bindPopup(branch.name, { className: 'branch-popup' });
+
+      return marker;
+
+    });
+
+
+
+    map.fitBounds(L.featureGroup(markers).getBounds().pad(0.12));
+
+
+
+    mapEl.addEventListener('mouseenter', () => { map.scrollWheelZoom.enable(); });
+
+    mapEl.addEventListener('mouseleave', () => { map.scrollWheelZoom.disable(); });
+
+    mapEl.addEventListener('focusin', () => { map.scrollWheelZoom.enable(); });
+
+    mapEl.addEventListener('focusout', () => { map.scrollWheelZoom.disable(); });
+
+  }
+
+
+
   function init() {
 
     renderCategories();
@@ -1337,6 +1435,8 @@
     initReveal();
 
     initCategoryFlips();
+
+    initBranchMap();
 
   }
 

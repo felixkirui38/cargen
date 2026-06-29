@@ -24,6 +24,8 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
   <link rel="stylesheet" href="css/style.css" />
 
 </head>
@@ -40,7 +42,7 @@
       <div class="top-bar-left">
         <a href="tel:0800724600"><i class="fas fa-phone"></i> Toll Free 0800724600</a>
         <a href="mailto:info@cargen.com" class="hide-mobile"><i class="fas fa-envelope"></i> info@cargen.com</a>
-        <a href="#" class="hide-mobile"><i class="fas fa-location-dot"></i> Branch Locator</a>
+        <a href="#branches" class="hide-mobile"><i class="fas fa-location-dot"></i> Branch Locator</a>
       </div>
       <div class="top-bar-right">
         <a href="#" class="hide-mobile"><i class="fas fa-globe"></i> Select Country</a>
@@ -186,13 +188,13 @@
         </li>
       </ul>
 
-      <div class="nav-hotline hide-mobile">
+      <a href="tel:0800724600" class="nav-hotline hide-mobile">
         <i class="fas fa-phone"></i>
         <div>
           <span>Business Enquiries</span>
-          <strong>+1 (800) 555-CARGEN</strong>
+          <strong>0800724600</strong>
         </div>
-      </div>
+      </a>
     </div>
   </nav>
 
@@ -526,7 +528,7 @@
 
                 <h3 class="bento-title-sm lg">Automotive Division</h3>
 
-                <p class="bento-desc">Piaggio, TVS, MRF &amp; Motorola</p>
+                <p class="bento-desc">Piaggio, TVS, MRF &amp; Motorol</p>
 
                 <span class="bento-btn dark">Learn More <i class="fas fa-arrow-right"></i></span>
 
@@ -672,7 +674,7 @@
 
             <span class="deal-label">Deal Of The Week</span>
 
-            <h2>Motorola Synthetic<br />Engine Oil 5W-30</h2>
+            <h2>Motorol Synthetic<br />Engine Oil 5W-30</h2>
 
             <div class="countdown" id="countdown">
 
@@ -692,7 +694,7 @@
 
           <div class="deal-image">
 
-            <img src="images/products/motorol-oil.png" alt="Motorola Engine Oil" class="product-shot" />
+            <img src="images/products/motorol-oil.png" alt="Motorol Engine Oil" class="product-shot" />
 
             <span class="deal-badge">-35%</span>
 
@@ -880,7 +882,7 @@
 
                   <strong>Phone</strong>
 
-                  <span>+1 (800) 555-CARGEN</span>
+                  <span>0800724600</span>
 
                 </div>
 
@@ -992,6 +994,38 @@
 
     </section>
 
+
+
+    <!-- Branch Map -->
+
+    <section class="section branch-map-section" id="branches">
+
+      <div class="container">
+
+        <div class="section-header center">
+
+          <div>
+
+            <span class="section-eyebrow">Our Network</span>
+
+            <h2 class="section-title">Branch Locations</h2>
+
+            <p class="branch-map-lead">Serving customers across East Africa with local branches and distribution centres.</p>
+
+          </div>
+
+        </div>
+
+        <div class="branch-map-wrap">
+
+          <div id="branch-map" aria-label="Car and General branch locations map"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
 
@@ -1016,7 +1050,7 @@
 
             <p><i class="fas fa-map-marker-alt"></i> 123 Automotive Drive, Industry Park</p>
 
-            <p><i class="fas fa-phone"></i> +1 (800) 555-CARGEN</p>
+            <p><i class="fas fa-phone"></i> 0800724600</p>
 
             <p><i class="fas fa-envelope"></i> info@cargen-automotive.com</p>
 
@@ -1037,6 +1071,8 @@
           <a href="#brands">Partners</a>
 
           <a href="#news">News</a>
+
+          <a href="#branches">Branch Locator</a>
 
           <a href="#contact">Contact</a>
 
@@ -1072,6 +1108,34 @@
 
         </div>
 
+        <div class="footer-app">
+
+          <h4>Download<br>Our App</h4>
+
+          <a href="https://play.google.com/store" class="google-play-badge" target="_blank" rel="noopener noreferrer">
+
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="155" height="60" loading="lazy" />
+
+          </a>
+
+          <div class="footer-app-social">
+
+            <a href="#" class="social-icon social-icon--facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+
+            <a href="#" class="social-icon social-icon--instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+
+            <a href="#" class="social-icon social-icon--twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+
+            <a href="#" class="social-icon social-icon--linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+
+            <a href="#" class="social-icon social-icon--youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+
+            <a href="#" class="social-icon social-icon--tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+
+          </div>
+
+        </div>
+
       </div>
 
 
@@ -1079,18 +1143,6 @@
       <div class="footer-bottom">
 
         <p>&copy; 2026 Cargen Automotive. All rights reserved.</p>
-
-        <div class="footer-social">
-
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-
-        </div>
 
       </div>
 
@@ -1101,6 +1153,8 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <script src="js/main.js"></script>
 
