@@ -28,7 +28,7 @@
 
       subcategories: [
 
-        { name: 'Piaggio', image: `${IMG}cat-automotive.png` },
+        { name: 'Piaggio', image: 'images/products/piaggio.png' },
 
         { name: 'TVS', image: `${IMG}cat-automotive.png` },
 
@@ -68,7 +68,7 @@
 
         { name: 'Develon', image: `${IMG}cat-construction.png` },
 
-        { name: 'Ace', image: `${IMG}cat-construction.png` },
+        { name: 'Ace', image: 'images/products/ace-f150.png' },
 
       ],
 
@@ -132,11 +132,11 @@
 
       icon: 'fa-bolt',
 
-      image: `${IMG}cat-generators.png`,
+      image: `${IMG}cat-generators.png?v=2`,
 
       subcategories: [
 
-        { name: 'Cummins', image: `${IMG}cat-generators.png` },
+        { name: 'Cummins', image: 'images/products/cummins.png?v=2' },
 
         { name: 'Briggs & Stratton', image: `${IMG}cat-generators.png` },
 

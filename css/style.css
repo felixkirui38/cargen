@@ -827,26 +827,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .mega-col:last-child { border-right: none; }
 
-.mega-col h4 {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 14px;
-  letter-spacing: 0.02em;
-}
-
-.mega-col h4 i {
-  color: var(--primary);
-  margin-right: 8px;
-  width: 18px;
-}
-
 .mega-col a {
   display: block;
-  padding: 7px 0;
+  padding: 8px 0;
   font-size: 14px;
-  font-weight: 450;
+  font-weight: 500;
   color: var(--text-secondary);
   transition: all var(--transition);
 }
@@ -1040,6 +1025,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     border-right: none;
     border-bottom: 1px solid var(--border-light);
   }
+
+  .mega-col:last-child { border-bottom: none; }
 
   .mobile-toggle { display: flex; }
   .main-header .header-cta { display: none; }
