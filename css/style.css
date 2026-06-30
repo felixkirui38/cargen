@@ -37,6 +37,24 @@
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --transition: 0.35s var(--ease);
+  /* Typography */
+  --fs-base: 14px;
+  --fs-xs: 10px;
+  --fs-sm: 11px;
+  --fs-md: 12px;
+  --fs-lg: 13px;
+  --fs-xl: 14px;
+  --fs-2xl: 15px;
+  --fs-3xl: 16px;
+  --fs-4xl: 18px;
+  --fs-display-sm: clamp(1.1875rem, 2.35vw, 1.5rem);
+  --fs-display-md: clamp(1.3125rem, 2.85vw, 1.625rem);
+  --fs-display-lg: clamp(1.375rem, 3.2vw, 1.875rem);
+  --fs-hero: clamp(1.75rem, 4.2vw, 2.75rem);
+  --fs-stat: clamp(1.625rem, 3.2vw, 2.1rem);
+  --lh-body: 1.6;
+  --lh-relaxed: 1.65;
+  --lh-heading: 1.15;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,8 +63,8 @@ html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
 body {
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
   color: var(--text-secondary);
   background: var(--bg);
   overflow-x: hidden;
@@ -92,7 +110,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .top-bar {
   background: var(--topbar);
   color: rgba(255, 255, 255, 0.65);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   padding: 10px 0;
   letter-spacing: 0.02em;
@@ -117,7 +135,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 8px;
   color: rgba(255, 255, 255, 0.65);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   transition: color var(--transition);
 }
@@ -133,7 +151,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .top-bar-right a {
   color: rgba(255, 255, 255, 0.65);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -180,7 +198,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: center;
   padding: 11px 22px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -206,7 +224,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 12px 24px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #fff;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-primary);
@@ -239,7 +257,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .stat-item strong {
   display: block;
   font-family: var(--font-heading);
-  font-size: clamp(32px, 4vw, 42px);
+  font-size: var(--fs-stat);
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.03em;
@@ -248,7 +266,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .stat-item span {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.02em;
@@ -272,7 +290,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .about-strip-content p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.75;
   color: var(--text-secondary);
   margin: 20px 0 28px;
@@ -304,7 +322,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .bento-desc {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 500;
   color: var(--text-muted);
   line-height: 1.4;
@@ -336,7 +354,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .corp-cta-content h2 {
   font-family: var(--font-heading);
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: var(--fs-display-md);
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.03em;
@@ -345,7 +363,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .corp-cta-content p {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 15px;
+  font-size: 14px;
   max-width: 520px;
 }
 
@@ -382,7 +400,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .contact-info-block p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.75;
   color: var(--text-secondary);
   margin: 16px 0 32px;
@@ -419,13 +437,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 14px;
   flex-shrink: 0;
 }
 
 .contact-detail strong {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -434,7 +452,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .contact-detail span {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--dark);
 }
@@ -471,7 +489,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 11px;
   color: var(--text);
   background: var(--bg-subtle);
   outline: none;
@@ -554,7 +572,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 12px 18px;
   border: none;
   background: transparent;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 400;
   color: var(--text);
   outline: none;
@@ -567,7 +585,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #fff;
   padding: 0 18px;
-  font-size: 14px;
+  font-size: 11px;
   margin: 4px;
   border-radius: var(--radius-full);
   transition: all var(--transition);
@@ -622,27 +640,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--bg-subtle);
   border-radius: var(--radius-sm);
   color: var(--primary);
-  font-size: 13px;
+  font-size: 11px;
   flex-shrink: 0;
 }
 
 .search-result-text strong {
   display: block;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--dark);
   margin-bottom: 2px;
 }
 
 .search-result-text span {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-muted);
 }
 
 .search-no-results {
   padding: 20px 16px;
   text-align: center;
-  font-size: 14px;
+  font-size: 11px;
   color: var(--text-muted);
 }
 
@@ -654,7 +672,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 42px;
   border-radius: var(--radius-full);
   color: var(--text-secondary);
-  font-size: 18px;
+  font-size: 14px;
   transition: all var(--transition);
 }
 
@@ -718,7 +736,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
   .header-search input {
     padding: 11px 16px;
-    font-size: 14px;
+    font-size: 11px;
   }
 
   .header-search button {
@@ -770,7 +788,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .header-action i {
-  font-size: 21px;
+  font-size: 14px;
   margin-bottom: 4px;
   transition: transform var(--transition);
 }
@@ -807,7 +825,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: center;
   width: 44px;
   height: 44px;
-  font-size: 18px;
+  font-size: 14px;
   color: var(--dark);
   margin-left: auto;
   border-radius: var(--radius-sm);
@@ -841,7 +859,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: #fff;
   padding: 0 28px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 11px;
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -896,7 +914,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .mega-col a {
   display: block;
   padding: 8px 0;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 500;
   color: var(--text-secondary);
   transition: all var(--transition);
@@ -919,7 +937,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-links a {
   color: rgba(255, 255, 255, 0.9);
   padding: 0 20px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   line-height: 54px;
   letter-spacing: 0.03em;
@@ -989,7 +1007,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
   padding: 10px 22px;
   line-height: 1.4;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 500;
   color: var(--text-secondary);
 }
@@ -1019,7 +1037,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .nav-hotline i {
-  font-size: 26px;
+  font-size: 19px;
   opacity: 0.9;
 }
 
@@ -1033,7 +1051,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .nav-hotline strong {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -1094,7 +1112,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     flex: 1;
     min-width: 0;
     padding: 0 18px;
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .mega-trigger.open .mega-menu {
@@ -1236,7 +1254,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 8px;
   background: var(--primary-soft);
   color: var(--primary);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   padding: 8px 16px;
   border-radius: var(--radius-full);
@@ -1248,7 +1266,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .hero-content h1 {
   font-family: var(--font-heading);
-  font-size: clamp(36px, 5.5vw, 58px);
+  font-size: var(--fs-hero);
   font-weight: 800;
   color: var(--dark);
   line-height: 1.05;
@@ -1257,7 +1275,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .hero-content p {
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--text-secondary);
   margin-bottom: 32px;
@@ -1268,7 +1286,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-content p strong {
   color: var(--primary);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 19px;
 }
 
 .btn-shop {
@@ -1278,7 +1296,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #fff;
   padding: 16px 32px;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.02em;
   border-radius: var(--radius-full);
@@ -1319,7 +1337,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .hero-swiper .swiper-button-prev::after,
-.hero-swiper .swiper-button-next::after { font-size: 14px; font-weight: 800; }
+.hero-swiper .swiper-button-next::after { font-size: 11px; font-weight: 800; }
 
 .hero-swiper .swiper-pagination-bullet {
   width: 10px;
@@ -1401,7 +1419,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: all var(--transition);
 }
 
-.feature-icon i { font-size: 22px; color: var(--primary); }
+.feature-icon i { font-size: 19px; color: var(--primary); }
 
 .feature-item:hover .feature-icon {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -1412,7 +1430,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .feature-item:hover .feature-icon i { color: #fff; }
 
 .feature-item h4 {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 4px;
@@ -1421,7 +1439,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .feature-item p {
-  font-size: 13px;
+  font-size: 11px;
   color: var(--text-muted);
   font-weight: 450;
   line-height: 1.5;
@@ -1531,7 +1549,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .bento-title {
   font-family: var(--font-heading);
-  font-size: clamp(26px, 3.5vw, 36px);
+  font-size: clamp(1.1875rem, 2.85vw, 1.75rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -1541,7 +1559,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .bento-title-sm {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -1551,7 +1569,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .bento-title-sm.lg {
-  font-size: clamp(22px, 2.5vw, 28px);
+  font-size: clamp(1.0625rem, 2.1vw, 1.375rem);
   margin-bottom: 10px;
 }
 
@@ -1559,7 +1577,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .bento-highlight {
   font-family: var(--font-heading);
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 800;
   color: var(--primary-light);
   text-transform: uppercase;
@@ -1569,7 +1587,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .bento-price {
   font-family: var(--font-heading);
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 800;
   color: var(--primary);
   letter-spacing: -0.02em;
@@ -1585,7 +1603,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: #fff;
   color: var(--dark);
   padding: 12px 22px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   border-radius: var(--radius-sm);
   transition: all var(--transition);
@@ -1712,7 +1730,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .why-cargen-section .section-title {
   font-family: var(--font-body);
-  font-size: clamp(26px, 4vw, 34px);
+  font-size: clamp(1.1875rem, 3.2vw, 1.625rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   text-transform: none;
@@ -1761,7 +1779,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .why-icon i {
-  font-size: 28px;
+  font-size: 24px;
   color: var(--primary);
   position: relative;
   z-index: 1;
@@ -1771,7 +1789,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .why-item:hover .why-icon i { color: #fff; }
 
 .why-item h3 {
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 12px;
@@ -1779,7 +1797,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .why-item p {
-  font-size: 14px;
+  font-size: 11px;
   color: var(--text-secondary);
   line-height: 1.7;
   max-width: 320px;
@@ -1791,7 +1809,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .section-eyebrow {
   display: block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--primary);
   text-transform: uppercase;
@@ -1817,7 +1835,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 38px);
+  font-size: var(--fs-display-lg);
   font-weight: 800;
   color: var(--dark);
   letter-spacing: -0.03em;
@@ -1828,7 +1846,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--primary);
   padding: 10px 18px;
@@ -1973,13 +1991,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 48px;
+  font-size: 38px;
   color: var(--primary);
   z-index: 0;
 }
 
 .cat-flip-front h4 {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.02em;
@@ -1991,7 +2009,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .cat-flip-hint {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.03em;
@@ -2038,7 +2056,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .cat-flip-back-title {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--primary);
   text-transform: uppercase;
@@ -2121,7 +2139,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .cat-sub-list span {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--dark);
   line-height: 1.3;
@@ -2134,7 +2152,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 8px;
   margin-top: 12px;
   padding: 10px 16px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--primary);
   border: 1.5px solid rgba(255, 0, 0, 0.25);
@@ -2261,7 +2279,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .deal-content h2 {
   font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 36px);
+  font-size: clamp(1.3125rem, 3.2vw, 1.75rem);
   font-weight: 800;
   color: var(--dark);
   margin-bottom: 24px;
@@ -2287,7 +2305,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .countdown span {
   display: block;
   font-family: var(--font-heading);
-  font-size: 26px;
+  font-size: 19px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -2325,7 +2343,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: #fff;
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 800;
   padding: 14px 18px;
   border-radius: var(--radius-full);
@@ -2345,7 +2363,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .tab-btn {
   padding: 10px 24px;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--text-secondary);
   border-radius: var(--radius-full);
@@ -2441,7 +2459,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 11px;
   color: var(--text-secondary);
   transition: all var(--transition);
   border: 1px solid var(--border-light);
@@ -2485,7 +2503,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .product-title {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--dark);
   margin-bottom: 10px;
@@ -2502,7 +2520,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .product-rating {
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .product-rating i { color: var(--star); }
@@ -2515,14 +2533,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .price-current {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 800;
   color: var(--dark);
   letter-spacing: -0.02em;
 }
 
 .price-old {
-  font-size: 14px;
+  font-size: 11px;
   color: var(--text-muted);
   text-decoration: line-through;
   font-weight: 500;
@@ -2539,7 +2557,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 12px;
   background: var(--dark);
   color: #fff;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2600,7 +2618,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .promo-overlay span {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2609,7 +2627,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .promo-overlay h3 {
   font-family: var(--font-heading);
-  font-size: 26px;
+  font-size: 19px;
   font-weight: 800;
   margin: 8px 0 14px;
   letter-spacing: -0.02em;
@@ -2617,7 +2635,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .promo-link {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -2641,7 +2659,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .brand-slide span {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #c4c4c4;
   letter-spacing: 0.06em;
@@ -2696,12 +2714,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .testimonial-card .stars {
   color: var(--star);
   margin-bottom: 18px;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .testimonial-card p {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 15px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.75;
@@ -2726,12 +2744,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .testimonial-author strong {
   display: block;
   color: #fff;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 700;
 }
 
 .testimonial-author span {
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.45);
   font-weight: 500;
 }
@@ -2825,7 +2843,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--bg);
   color: var(--dark);
   padding: 8px 14px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-sm);
@@ -2834,7 +2852,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .blog-body { padding: 24px; }
 
 .blog-body h3 {
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 10px;
@@ -2846,14 +2864,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .blog-body h3:hover { color: var(--primary); }
 
 .blog-body p {
-  font-size: 14px;
+  font-size: 11px;
   color: var(--text-muted);
   margin-bottom: 16px;
   line-height: 1.65;
 }
 
 .blog-read {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--primary);
   display: inline-flex;
@@ -2871,7 +2889,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .branch-map-lead {
   max-width: 520px;
   margin: 12px auto 0;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -2919,7 +2937,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .branch-popup .leaflet-popup-content {
   margin: 12px 16px;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--dark);
 }
@@ -2964,7 +2982,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .newsletter-text h2 {
   font-family: var(--font-heading);
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: var(--fs-display-md);
   font-weight: 800;
   color: #fff;
   margin-bottom: 8px;
@@ -2973,7 +2991,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .newsletter-text p {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 450;
 }
 
@@ -2992,7 +3010,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 14px 22px;
   border: none;
   background: transparent;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 450;
   outline: none;
   color: var(--text);
@@ -3004,7 +3022,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 14px 28px;
   background: var(--dark);
   color: #fff;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
   border-radius: var(--radius-full);
   transition: all var(--transition);
@@ -3081,7 +3099,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .footer-app h4 {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: #fff;
   line-height: 1.35;
@@ -3121,7 +3139,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   transition: transform var(--transition), opacity var(--transition);
 }
 
@@ -3142,14 +3160,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .footer-about p {
-  font-size: 14px;
+  font-size: 11px;
   line-height: 1.75;
   margin: 18px 0;
   font-weight: 400;
 }
 
 .footer-contact p {
-  font-size: 14px;
+  font-size: 11px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -3161,7 +3179,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .footer-col h4 {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 22px;
@@ -3170,7 +3188,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .footer-col a {
   display: block;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 450;
   color: rgba(255, 255, 255, 0.5);
   padding: 6px 0;
@@ -3199,7 +3217,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   }
 }
 
-.footer-bottom p { font-size: 13px; font-weight: 450; }
+.footer-bottom p { font-size: 11px; font-weight: 450; }
 
 .payment-icons {
   display: flex;
@@ -3219,7 +3237,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: center;
   color: rgba(255, 255, 255, 0.5);
-  font-size: 15px;
+  font-size: 14px;
   transition: all var(--transition);
 }
 
@@ -3296,7 +3314,7 @@ img, video, svg {
   .search-toggle {
     width: 40px;
     height: 40px;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .section { padding: 40px 0; }
@@ -3317,7 +3335,7 @@ img, video, svg {
     height: 48px;
   }
 
-  .feature-icon i { font-size: 20px; }
+  .feature-icon i { font-size: 17px; }
 
   .hero-slide { min-height: 420px; }
   .hero-slide-inner {
@@ -3326,12 +3344,12 @@ img, video, svg {
     align-items: flex-end;
   }
 
-  .hero-content h1 { font-size: clamp(28px, 8vw, 36px); }
-  .hero-content p { font-size: 15px; margin-bottom: 24px; }
+  .hero-content h1 { font-size: clamp(1.375rem, 6.5vw, 1.75rem); }
+  .hero-content p { font-size: var(--fs-xl); margin-bottom: 24px; }
 
   .btn-shop {
-    padding: 14px 24px;
-    font-size: 13px;
+    padding: 13px 22px;
+    font-size: var(--fs-md);
     width: 100%;
     justify-content: center;
   }
@@ -3340,7 +3358,7 @@ img, video, svg {
   .hero-swiper .swiper-button-next { display: none; }
 
   .stats-grid { gap: 16px; }
-  .stat-item strong { font-size: clamp(26px, 7vw, 32px); }
+  .stat-item strong { font-size: clamp(1.3125rem, 5.5vw, 1.625rem); }
 
   .about-strip { padding: 48px 0; }
 
@@ -3373,7 +3391,7 @@ img, video, svg {
 
   .product-image { padding: 16px; }
   .product-info { padding: 14px 16px 16px; }
-  .price-current { font-size: 17px; }
+  .price-current { font-size: var(--fs-2xl); }
 
   .corp-cta { padding: 40px 0; }
   .corp-cta-inner .btn-shop { width: 100%; justify-content: center; }
@@ -3491,4 +3509,91 @@ img, video, svg {
 body.nav-locked {
   overflow: hidden;
   touch-action: none;
+}
+
+/* ============================================
+   TYPOGRAPHY — readable UI scale
+   ============================================ */
+
+.nav-links a,
+.nav-links .nav-submenu a,
+.mega-col a,
+.btn-shop,
+.view-all,
+.bento-btn,
+.tab-btn,
+.product-cart button,
+.header-search input,
+.header-search button,
+.corp-form input,
+.corp-form select,
+.corp-form textarea,
+.newsletter-form input,
+.newsletter-form button {
+  font-size: var(--fs-md);
+}
+
+.product-title,
+.feature-item h4,
+.why-item p,
+.search-result-text strong {
+  font-size: var(--fs-lg);
+  line-height: 1.45;
+}
+
+.feature-item p,
+.product-rating,
+.footer-bottom p,
+.cat-sub-list span,
+.cat-flip-more,
+.promo-link,
+.blog-body p,
+.blog-read {
+  font-size: var(--fs-md);
+}
+
+.hero-content p,
+.about-strip-content p,
+.contact-info-block p,
+.corp-cta-content p,
+.footer-about p,
+.footer-contact p,
+.footer-col a,
+.newsletter-text p,
+.blog-body h3,
+.branch-map-lead,
+.testimonial-card p {
+  font-size: var(--fs-xl);
+  line-height: var(--lh-relaxed);
+}
+
+.nav-hotline strong {
+  font-size: var(--fs-xl);
+}
+
+.section-title,
+.newsletter-text h2 {
+  line-height: var(--lh-heading);
+}
+
+.btn-shop {
+  padding: 13px 26px;
+}
+
+.payment-icons {
+  font-size: 26px;
+}
+
+@media (max-width: 479px) {
+  .hero-content h1 {
+    font-size: clamp(1.375rem, 6.5vw, 1.75rem);
+  }
+
+  .stat-item strong {
+    font-size: clamp(1.3125rem, 5.5vw, 1.625rem);
+  }
+
+  .price-current {
+    font-size: var(--fs-2xl);
+  }
 }
