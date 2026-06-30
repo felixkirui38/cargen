@@ -742,27 +742,29 @@
 
 
 
-    new Swiper('.testimonials-swiper', {
+    if (document.querySelector('.testimonials-swiper')) {
+      new Swiper('.testimonials-swiper', {
 
-      slidesPerView: 1,
+        slidesPerView: 1,
 
-      spaceBetween: 20,
+        spaceBetween: 20,
 
-      loop: true,
+        loop: true,
 
-      autoplay: { delay: 5000, disableOnInteraction: false },
+        autoplay: { delay: 5000, disableOnInteraction: false },
 
-      pagination: { el: '.testimonials-pagination', clickable: true },
+        pagination: { el: '.testimonials-pagination', clickable: true },
 
-      breakpoints: {
+        breakpoints: {
 
-        768: { slidesPerView: 2 },
+          768: { slidesPerView: 2 },
 
-        992: { slidesPerView: 3 },
+          992: { slidesPerView: 3 },
 
-      },
+        },
 
-    });
+      });
+    }
 
   }
 
@@ -1036,7 +1038,7 @@
 
       { title: 'News & Updates', type: 'Page', href: '#news', keywords: 'news press releases media updates', icon: 'fa-newspaper' },
 
-      { title: 'Careers', type: 'Page', href: '#careers', keywords: 'careers jobs employment hiring work', icon: 'fa-briefcase' },
+      { title: 'Careers', type: 'Page', href: '#contact', keywords: 'careers jobs employment hiring work', icon: 'fa-briefcase' },
 
       { title: 'Branch Locations', type: 'Page', href: '#branches', keywords: 'branches locations map east africa network offices', icon: 'fa-map-location-dot' },
 
